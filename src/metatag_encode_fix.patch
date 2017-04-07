@@ -4,10 +4,10 @@ Date:   Tue Apr 4 10:59:18 2017 +0100
 
     metatag_encode_fix
 
-diff --git a/docroot/core/lib/Drupal/Core/Template/AttributeValueBase.php b/docroot/core/lib/Drupal/Core/Template/AttributeValueBase.php
+diff --git a/lib/Drupal/Core/Template/AttributeValueBase.php b/docroot/core/lib/Drupal/Core/Template/AttributeValueBase.php
 index a0280e6..11d843a 100644
---- a/docroot/core/lib/Drupal/Core/Template/AttributeValueBase.php
-+++ b/docroot/core/lib/Drupal/Core/Template/AttributeValueBase.php
+--- a/lib/Drupal/Core/Template/AttributeValueBase.php
++++ b/lib/Drupal/Core/Template/AttributeValueBase.php
 @@ -50,8 +50,14 @@ public function __construct($name, $value) {
     */
    public function render() {
