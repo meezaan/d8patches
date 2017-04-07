@@ -1,0 +1,26 @@
+commit a33238dc3959bc5f9b8b8158c705ecb2ae823207
+Author: Rajiv Mandve <rajiv.mandve@cognizant.com>
+Date:   Tue Apr 4 10:59:18 2017 +0100
+
+    metatag_encode_fix
+
+diff --git a/docroot/core/lib/Drupal/Core/Template/AttributeValueBase.php b/docroot/core/lib/Drupal/Core/Template/AttributeValueBase.php
+index a0280e6..11d843a 100644
+--- a/docroot/core/lib/Drupal/Core/Template/AttributeValueBase.php
++++ b/docroot/core/lib/Drupal/Core/Template/AttributeValueBase.php
+@@ -50,8 +50,14 @@ public function __construct($name, $value) {
+    */
+   public function render() {
+     $value = (string) $this;
++
+     if (isset($this->value) && static::RENDER_EMPTY_ATTRIBUTE || !empty($value)) {
+-      return Html::escape($this->name) . '="' . $value . '"';
++      if($this->name == "content") {
++        return Html::escape($this->name) . '="' . Html::decodeEntities($this->value()) . '"';
++      } else {
++        return Html::escape($this->name) . '="' . $value . '"';
++      }
++
+     }
+   }
+ 
