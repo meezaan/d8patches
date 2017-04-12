@@ -1,0 +1,27 @@
+diff --git a/docroot/modules/contrib/rest_menu_items/src/Plugin/rest/resource/RestMenuItemsResource.php b/docroot/modules/contrib/rest_menu_items/src/Plugin/rest/resource/RestMenuItemsResource.php
+index 5709242..67e283b 100644
+--- a/docroot/modules/contrib/rest_menu_items/src/Plugin/rest/resource/RestMenuItemsResource.php
++++ b/docroot/modules/contrib/rest_menu_items/src/Plugin/rest/resource/RestMenuItemsResource.php
+@@ -1,8 +1,4 @@
+ <?php
+-/**
+- * @file
+- * Create the menu item REST resource.
+- */
+ 
+ namespace Drupal\rest_menu_items\Plugin\rest\resource;
+ 
+@@ -192,7 +188,12 @@ private function getMenuItems(array $tree, array &$items = array()) {
+         $external = TRUE;
+       }
+       else {
+-        $uri = $url->getInternalPath();
++        try {
++          $uri = $url->getInternalPath();
++        }
++        catch (\UnexpectedValueException $e) {
++          $uri = '';
++        }
+       }
+ 
+       $items[$item_name] = array(
