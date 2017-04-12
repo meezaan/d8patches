@@ -1,7 +1,7 @@
-diff --git a/docroot/modules/contrib/rest_menu_items/src/Plugin/rest/resource/RestMenuItemsResource.php b/docroot/modules/contrib/rest_menu_items/src/Plugin/rest/resource/RestMenuItemsResource.php
+diff --git a/src/Plugin/rest/resource/RestMenuItemsResource.php b/src/Plugin/rest/resource/RestMenuItemsResource.php
 index 5709242..67e283b 100644
---- a/docroot/modules/contrib/rest_menu_items/src/Plugin/rest/resource/RestMenuItemsResource.php
-+++ b/docroot/modules/contrib/rest_menu_items/src/Plugin/rest/resource/RestMenuItemsResource.php
+--- a/src/Plugin/rest/resource/RestMenuItemsResource.php
++++ b/src/Plugin/rest/resource/RestMenuItemsResource.php
 @@ -1,8 +1,4 @@
  <?php
 -/**
