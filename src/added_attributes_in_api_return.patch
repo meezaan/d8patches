@@ -1,0 +1,23 @@
+diff --git a/src/Plugin/rest/resource/RestMenuItemsResource.php b/src/Plugin/rest/resource/RestMenuItemsResource.php
+index 67e283b..3cbaf60 100644
+--- a/src/Plugin/rest/resource/RestMenuItemsResource.php
++++ b/src/Plugin/rest/resource/RestMenuItemsResource.php
+@@ -181,6 +181,7 @@ private function getMenuItems(array $tree, array &$items = array()) {
+ 
+       /* @var $url \Drupal\Core\Url */
+       $url = $item_value['url'];
++      $urlAttributes = $item_value['url']->getOptions();
+ 
+       $external = FALSE;
+       if ($url->isExternal()) {
+@@ -201,6 +202,10 @@ private function getMenuItems(array $tree, array &$items = array()) {
+         'title' => $org_link->getTitle(),
+         'uri' => $uri,
+         'external' => $external,
++        'description' => (!empty($urlAttributes['attributes']['title'])) ? $urlAttributes['attributes']['title'] : "",
++        'target' => (!empty($urlAttributes['attributes']['target'])) ? $urlAttributes['attributes']['target'] : "",
++        'rel' => (!empty($urlAttributes['attributes']['rel'])) ? $urlAttributes['attributes']['rel'] : "",
++        'class' => (!empty($urlAttributes['attributes']['class'])) ? $urlAttributes['attributes']['class'] : "",
+       );
+ 
+       if (!empty($item_value['below'])) {
